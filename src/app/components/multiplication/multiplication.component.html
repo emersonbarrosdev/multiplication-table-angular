@@ -1,0 +1,26 @@
+<div class="container" [formGroup]="form">
+  <div class="row pb-3 pt-4">
+    <div class="col-12 text-center">
+      <h2>Qual tabuada você quer?</h2>
+    </div>
+  </div>
+  <div class="row pb-3 justify-content-center">
+    <div class="col-7">
+      <input formControlName="multiplication" type="number" class="form-control" placeholder="Digite um número">
+    </div>
+    <div class="col-3 text-end">
+      <button type="submit" class="btn btn-primary mb-2" (click)="calcResult()">Calcular</button>
+    </div>
+  </div>
+  <div *ngIf="display">
+    <div class="row table" *ngFor="let number of sequence; index as i">
+      <div class="col-3 text-end">{{ multiplication }}</div>
+      <div class="col-1 text-center colorx">x</div>
+      <div class="col-1 text-center">{{ number }}</div>
+      <div class="col-1 text-center">=</div>
+      <div class="col-3 text-start">
+        <span>{{ result[i] }}</span>
+      </div>
+    </div>
+  </div>
+</div>
